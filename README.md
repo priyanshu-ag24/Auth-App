@@ -1,5 +1,5 @@
 First Contribution Project !! 
 
-#AUTHENTICATION PROJECT !!
+AUTHENTICATION PROJECT !!
 
 Project Contributor Priyanhsu and Pritam Kumar. ✌️
