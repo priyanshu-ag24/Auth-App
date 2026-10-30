@@ -4,8 +4,70 @@ import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa"
+import { useState } from "react";
+import toast from "react-hot-toast";
+import type RegisterData from "@/models/RegisterData";
+import { registerUser } from "@/services/AuthService";
 
 export const Singnup = () => {
+
+    const[data,setData] = useState<RegisterData>({
+      name:'',
+      email:'',
+      password:"",
+    });
+
+    
+
+    // const [loading, setLoading]=useState<boolean>(false);
+    // const [error, setError] = useState(null);
+
+    //text input, email, password, number, textarea
+    //Handling form Change
+    const handleInputChange = (event:React.ChangeEvent<HTMLInputElement>) =>{
+      // console.log(event.target.name)
+      // console.log(event.target.value)
+      setData(value => ({
+        ...value,
+        [event.target.name]:event.target.value,
+      }));
+    };
+
+    //Handling form Submit
+    const HandleFromSubmit = async(event:React.SubmitEvent<HTMLFormElement>) =>{
+      event.preventDefault()
+      console.log(data);
+
+      //Validation
+      //Using React Toaster for Validation 
+      if(data.name.trim() === ''){
+        toast.error("Name is required !")
+        return;
+      }
+
+      if(data.email.trim() === ''){
+        toast.error("Email is required !")
+        return;
+      }
+
+      if(data.password.trim() === ''){
+        toast.error("Password is required !")
+        return;
+      }
+
+      //Form Submit for registrations
+      try {
+        const result = await registerUser(data);
+        console.log(result);
+        toast.success("User Register Sucessfully..!")
+      } catch (error) {
+        console.log(error);
+        toast.success("Error in registering the user..!")
+      }
+
+
+    };
+
     return(
        <div className="min-h-screen flex items-center justify-center bg-black text-white px-4">
       <motion.div
@@ -19,7 +81,7 @@ export const Singnup = () => {
           <p className="text-neutral-400">Enter your details to get started</p>
         </div>
 
-        <form className="space-y-6">
+        <form onSubmit={HandleFromSubmit} className="space-y-6">
           <div className="space-y-2">
             <Label htmlFor="name" className="text-neutral-300">Name</Label>
             <Input 
@@ -27,6 +89,9 @@ export const Singnup = () => {
               type="text" 
               placeholder="John Doe" 
               className="bg-neutral-800 border-neutral-700 text-white" 
+              name="name"
+              value={data.name}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -37,6 +102,9 @@ export const Singnup = () => {
               type="email" 
               placeholder="name@example.com" 
               className="bg-neutral-800 border-neutral-700 text-white" 
+              name="email"
+              value={data.email}
+              onChange={handleInputChange}
             />
           </div>
           
@@ -46,11 +114,16 @@ export const Singnup = () => {
               id="password" 
               type="password" 
               placeholder="••••••••" 
-              className="bg-neutral-800 border-neutral-700 text-white" 
+              className="bg-neutral-800 border-neutral-700 text-white"
+              name="password"
+              value={data.password}
+              onChange={handleInputChange} 
             />
           </div>
           
-          <Button className="w-full h-11 bg-transparent border border-neutral-700 text-white hover:bg-neutral-800 transition-colors">
+          <Button 
+            type="submit"
+            className="w-full h-11 bg-transparent border border-neutral-700 text-white hover:bg-neutral-800 transition-colors">
             Sign Up
           </Button>
         </form>
