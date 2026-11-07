@@ -60,8 +60,10 @@ Run these commands from `Prod_Auth_Frontend`:
 
 ## Contributors
 
-- Priyanshu
-- Pritam Kumar
+| Contributor | Profile |
+| --- | --- |
+| [![Blexedpritam](https://avatars.githubusercontent.com/u/176069349?v=4&size=100)](https://github.com/Blexedpritam) | [@Blexedpritam](https://github.com/Blexedpritam) |
+| [![priyanshu-ag24](https://avatars.githubusercontent.com/u/291095318?v=4&size=100)](https://github.com/priyanshu-ag24) | [@priyanshu-ag24](https://github.com/priyanshu-ag24) |
 
 ## License
 
