@@ -60,10 +60,30 @@ Run these commands from `Prod_Auth_Frontend`:
 
 ## Contributors
 
-| Contributor | Profile |
-| --- | --- |
-| [![Blexedpritam](https://avatars.githubusercontent.com/u/176069349?v=4&size=100)](https://github.com/Blexedpritam) | [@Blexedpritam](https://github.com/Blexedpritam) |
-| [![priyanshu-ag24](https://avatars.githubusercontent.com/u/291095318?v=4&size=100)](https://github.com/priyanshu-ag24) | [@priyanshu-ag24](https://github.com/priyanshu-ag24) |
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <a href="https://github.com/priyanshu-ag24" title="Visit priyanshu-ag24's GitHub profile">
+        <img src="https://avatars.githubusercontent.com/u/291095318?v=4&size=120" width="100" alt="priyanshu-ag24's GitHub avatar" />
+        <br />
+        <strong>priyanshu-ag24</strong>
+      </a>
+      <br />
+      <img src="https://img.shields.io/badge/OWNER-Repository%20owner-7c3aed?style=for-the-badge" alt="Repository owner" />
+    </td>
+    <td align="center" width="50%">
+      <a href="https://github.com/Blexedpritam" title="Visit Blexedpritam's GitHub profile">
+        <img src="https://avatars.githubusercontent.com/u/176069349?v=4&size=120" width="100" alt="Blexedpritam's GitHub avatar" />
+        <br />
+        <strong>Blexedpritam</strong>
+      </a>
+      <br />
+      <img src="https://img.shields.io/badge/CONTRIBUTOR-Project%20contributor-2563eb?style=for-the-badge" alt="Project contributor" />
+    </td>
+  </tr>
+</table>
+
+> GitHub README rendering does not support custom CSS or JavaScript, so animated hover effects and CSS-based circular image cropping cannot be applied here. The profile cards and badges are clickable where applicable, and hovering over each avatar link shows a profile tooltip.
 
 ## License
 
