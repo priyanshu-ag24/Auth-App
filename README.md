@@ -1,45 +1,31 @@
 # Auth App
 
-A full-stack authentication application with a React and TypeScript frontend and a Spring Boot backend.
+A full-stack authentication project with a React and TypeScript frontend and a Spring Boot backend. The repository currently includes authentication UI and a registration API integration scaffold.
 
-## Project structure
+## Repository layout
 
 ```text
-Auth-App/
-├── Prod_Auth_Frontend/   # React, TypeScript, and Vite client
-├── Prod_Auth_Backend/    # Spring Boot and Java server
+.
+├── Prod_Auth_Frontend/   # React, TypeScript, and Vite application
+├── Prod_Auth_Backend/    # Spring Boot application
 └── README.md
 ```
 
-## Tech stack
+## Technology
 
-**Frontend:** React, TypeScript, Vite, Tailwind CSS, React Router, Axios, and Framer Motion.  
-**Backend:** Java 25, Spring Boot, Spring Data JPA, Maven, and MySQL Connector/J.
+- **Frontend:** React 19, TypeScript, Vite, Tailwind CSS, Axios, and React Router
+- **Backend:** Java 25, Spring Boot, Spring Data JPA, and Maven
+- **Database driver:** MySQL Connector/J
 
 ## Prerequisites
 
 - Node.js and npm
 - JDK 25
-- MySQL
+- MySQL, if running the backend with database-backed features
 
-The backend includes a Maven wrapper, so a separate Maven installation is not required.
-
-## Getting started
-
-### Backend
-
-Configure the database connection for your local MySQL instance in `Prod_Auth_Backend/src/main/resources/application.properties`, then run:
-
-```bash
-cd Prod_Auth_Backend
-./mvnw spring-boot:run
-```
-
-On Windows, use `mvnw.cmd spring-boot:run` instead.
+## Run locally
 
 ### Frontend
-
-In another terminal, run:
 
 ```bash
 cd Prod_Auth_Frontend
@@ -47,44 +33,64 @@ npm install
 npm run dev
 ```
 
-Use the local URL printed by Vite to open the frontend in your browser.
+Open the local address printed by Vite. Other available frontend commands are:
 
-## Available frontend scripts
+```bash
+npm run build
+npm run lint
+npm run preview
+```
 
-Run these commands from `Prod_Auth_Frontend`:
+### Backend
 
-- `npm run dev` — start the development server
-- `npm run build` — type-check and build for production
-- `npm run lint` — run ESLint
-- `npm run preview` — preview the production build
+The backend uses Maven Wrapper. From the repository root, start it with:
+
+```bash
+cd Prod_Auth_Backend
+./mvnw spring-boot:run
+```
+
+On Windows, run `mvnw.cmd spring-boot:run` instead.
+
+The backend's `application.properties` currently contains only the application name. Add the required database connection settings for your local environment before enabling database-dependent functionality. Do not commit credentials; use environment variables or another secure local configuration method.
+
+## API configuration
+
+The frontend API client accepts `VITE_API_BASE_URL`. Set it in a local `.env` file inside `Prod_Auth_Frontend` to the base URL exposed by your backend, for example:
+
+```dotenv
+VITE_API_BASE_URL=http://localhost:8083/api/v1
+```
+
+Confirm the backend's actual port and API path before using this example. The frontend currently has a registration request wired to `/auth/register`; configure the base URL and backend route to match.
+
+## Current project scope
+
+The frontend includes login and signup screens, and the signup flow calls the registration endpoint. The repository's backend currently contains the Spring Boot application entry point; a complete authentication API, database configuration, and production-ready login flow are not yet present. Social sign-in buttons are UI elements and should not be considered configured authentication providers.
 
 ## Contributors
 
 <table>
   <tr>
-    <td align="center" width="50%">
-      <a href="https://github.com/priyanshu-ag24" title="Visit priyanshu-ag24's GitHub profile">
-        <img src="https://avatars.githubusercontent.com/u/291095318?v=4&size=120" width="100" alt="priyanshu-ag24's GitHub avatar" />
-        <br />
-        <strong>priyanshu-ag24</strong>
+    <td align="center">
+      <a href="https://github.com/priyanshu-ag24">
+        <img src="https://avatars.githubusercontent.com/u/291095318?v=4" width="80" height="80" alt="priyanshu-ag24 GitHub avatar" />
+        <br /><strong>priyanshu-ag24</strong>
       </a>
       <br />
-      <img src="https://img.shields.io/badge/OWNER-Repository%20owner-7c3aed?style=for-the-badge" alt="Repository owner" />
+      <sub>Repository owner</sub>
     </td>
-    <td align="center" width="50%">
-      <a href="https://github.com/Blexedpritam" title="Visit Blexedpritam's GitHub profile">
-        <img src="https://avatars.githubusercontent.com/u/176069349?v=4&size=120" width="100" alt="Blexedpritam's GitHub avatar" />
-        <br />
-        <strong>Blexedpritam</strong>
+    <td align="center">
+      <a href="https://github.com/Blexedpritam">
+        <img src="https://avatars.githubusercontent.com/u/176069349?v=4" width="80" height="80" alt="Blexedpritam GitHub avatar" />
+        <br /><strong>Blexedpritam</strong>
       </a>
       <br />
-      <img src="https://img.shields.io/badge/CONTRIBUTOR-Project%20contributor-2563eb?style=for-the-badge" alt="Project contributor" />
+      <sub>Contributor</sub>
     </td>
   </tr>
 </table>
 
-> GitHub README rendering does not support custom CSS or JavaScript, so animated hover effects and CSS-based circular image cropping cannot be applied here. The profile cards and badges are clickable where applicable, and hovering over each avatar link shows a profile tooltip.
-
 ## License
 
-No license is currently specified. Please contact the repository owners for permission before reusing or distributing this project.
+No license is currently specified. Contact the repository owner before reusing or distributing this project.
